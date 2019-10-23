@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+
+public class Task2_3 {
+
+    public static void main(String[] args) {
+
+        final int DAYS_IN_THE_YEAR = 365;
+        final double DAYS_IN_THE_MONTH = (365/12);
+
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter amount of your deposit ");
+        double deposit = sc.nextDouble();
+        System.out.println("Amount of your deposit is " + deposit + " UAH");
+
+        System.out.println("Please enter qty of months ");
+        int months = sc.nextInt();
+        System.out.println("Qty of months " + months);
+
+        System.out.println("Please enter percent ");
+        double percent = sc.nextDouble();
+        System.out.println("Please enter percent " );
+        System.out.println("Percent is " + percent + " %");
+
+        double profit = (deposit * (percent / 100) * (months * DAYS_IN_THE_MONTH)) / (DAYS_IN_THE_YEAR);
+
+        System.out.println("Your SIMPLE profit is " + profit + " UAH");
+
+    }
+}
