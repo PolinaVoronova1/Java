@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+
+public class Task2_2 {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter weight in pounds ");
+        int number = sc.nextInt();
+        System.out.println("Initial weight in pounds = " + number);
+
+        final double KG_INTO_POUNDS = 0.4536;
+        double weightInKg = number * KG_INTO_POUNDS;
+        System.out.println("Weight in KG & GR = " + weightInKg);
+
+        /*
+        The answer of this task below
+         */
+        System.out.println("Weight in KG = " + (int)weightInKg);
+        System.out.println("The rest in GR = " + (weightInKg - (int)weightInKg) * 1000);
+
+
+
+
+
+    }
+}
