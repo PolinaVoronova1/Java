@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class Task2_1 {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter initial value ");
+        int number = sc.nextInt();
+        System.out.println("Initial value = " + number);
+
+        int val1 = (number / 100);
+        System.out.println("val1 = " + val1);
+
+        int val2 = (number % 100) / 10;
+        System.out.println("val2 = " + val2);
+
+        int val3= (number % 100) % 10;
+        System.out.println("val3 = " + val3);
+
+        int reverseNumber = val3 * 100 + val2 * 10 + val1;
+
+        System.out.println("reverseValue = " + reverseNumber);
+
+        System.out.println("Difference between number and its reversed value = " + (number-reverseNumber));
+    }
+}
