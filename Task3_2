@@ -1,0 +1,50 @@
+import java.util.Scanner;
+import java.util.StringJoiner;
+
+/**
+ * Created by Polina_Voronova on 10/24/2019.
+ */
+public class Task4_2 {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter int number >0 ");
+        int number = sc.nextInt();
+
+        String result = getBinaryCode(number);
+        System.out.println(number + " in binary code = " + result);
+
+    }
+    public static String getBinaryCode(int number){
+
+        String resPrelim = "";
+
+        while (number >= 1){
+
+            resPrelim += "" + (number % 2);
+            number = number / 2;
+        }
+        // System.out.println("resPrelim = " + resPrelim);
+
+        int index = resPrelim.length() - 1;
+        String resPrelim2 = "";
+        String res = "";
+
+        while (index >= 0 ) {
+
+            char ch = resPrelim.charAt(index);
+            resPrelim2 += ch + "";
+            index--;
+        }
+
+        res = resPrelim2;
+
+        if (resPrelim2.length() <= 8) {
+            while (res.length() <= 7){
+                res = '0' + res;
+        }
+        }
+
+        return res;
+    }
+}
