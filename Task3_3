@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+/**
+ * Created by Polina_Voronova on 10/24/2019.
+ */
+public class Task4_3 {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter int number ");
+        int number = sc.nextInt();
+        String result = getTwoLastSymbols(number);
+
+
+        if (result == "0") {
+            System.out.println("Error: " + "your entered number " + number + " consists of less than 2 digits");
+        } else {
+
+            System.out.println("From " + number + " we obtained  " + result);
+        }
+
+    }
+    public static String getTwoLastSymbols(int number){
+
+        String resPrelim = String.valueOf(number);
+        String res = "";
+
+        //System.out.println("resPrelim = " + resPrelim);
+
+        if (resPrelim.length() < 2) {
+
+            return "0";
+
+        } else {
+
+            res = resPrelim.charAt(resPrelim.length() - 1) + (resPrelim.charAt(resPrelim.length() - 2) + "");
+            return res;
+        }
+
+    }
+}
