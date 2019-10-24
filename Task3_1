@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+
+public class Task4_1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter first word ");
+        String myStr = sc.next();
+
+        String result = uniChar(myStr);
+        System.out.println(result);
+
+           }
+    public static String uniChar(String str){
+
+        int index = 0;
+        String res = "";
+        while (index < str.length()){
+
+            char ch = str.charAt(index);
+            if ( !res.contains(String.valueOf(ch))) {
+                res += ch + " ";
+            }
+            index ++;
+        }
+        
+        return res;
+
+    }
+
+}
