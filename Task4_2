@@ -1,0 +1,64 @@
+package tasks;
+
+import java.util.Arrays;
+import java.util.Random;
+import java.util.Scanner;
+
+/**
+ * Created by Polina_Voronova on 10/25/2019.
+ */
+public class Task5_2 {
+
+    public static void main(String[] args) {
+        int size = getSize();
+        int[] arr1 = createArray(size);
+        System.out.println("1st array = " + Arrays.toString(arr1));
+        int[] arr2 = createArray(size);
+        System.out.println("2nd array = " + Arrays.toString(arr2));
+
+        int[] arr3 = createArray(size); // can be created like int[] arr3 = new int[size] and then would be filled with 0
+        System.out.println("3rd array before actions = " + Arrays.toString(arr3));
+
+        arr3 = sumMembersOfOtherArrays(arr1, arr2);
+        System.out.println("3rd array after actions = " + Arrays.toString(arr3));
+
+    }
+    public static int[] createArray(int size) {
+        Random random = new Random();
+
+        int[] array = new int[size];
+
+        for (int i = 0; i < size; i++) {
+
+            array[i] = random.nextInt(20) - 10;
+
+        }
+
+        return array;
+    }
+
+    public static int getSize() {
+        Scanner sc = new Scanner(System.in);
+
+        int size;
+
+        while (true) {
+            System.out.print("Enter qty of elements ");
+            size = sc.nextInt();
+            if (size > 0) {
+                return size;
+            }
+            System.out.println("Invalid size ");
+        }
+
+    }
+
+    public static int[] sumMembersOfOtherArrays (int[] array1,int[] array2){
+        int[] array3 = new int[array1.length];
+
+        for (int i = 0; i <= (array1.length - 1); i++){
+            array3[i] += array1[i] + array2[i];
+        }
+        return array3;
+    }
+}
