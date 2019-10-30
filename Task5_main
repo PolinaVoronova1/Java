@@ -1,0 +1,28 @@
+package epam.com.lesson6_1;
+
+import epam.com.Book;
+
+import java.util.Scanner;
+
+/**
+ * Created by Polina_Voronova on 10/28/2019.
+ */
+public class Task6_1 {
+    public static void main(String[] args) {
+
+        Book bookN = new Book("nnn", 1986, 12.0);
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter length of books shelf ");
+        int length = sc.nextInt();
+        Books library1 = new Books(length);
+        System.out.println("Length of the library " + library1.getLength());
+
+        //library1.array[0].viewBook();
+        library1.addBook(library1, bookN);
+        library1.printBooks();
+        //        /*Books library2 =*/ library1.addBook(library1, bookN);
+        System.out.println("Length of the new library " + library1.getLength());
+       
+    }
+}
