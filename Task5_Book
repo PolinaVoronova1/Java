@@ -1,0 +1,101 @@
+package epam.com;
+
+/**
+ * Created by Polina_Voronova on 10/28/2019.
+ */
+public class Book {
+
+    private int id;
+    private String name;
+    private String author;
+    private String publisher;
+    private int publicatedYear;
+    private int pagesQty;
+    private double price;
+
+    private static int nextId = 0;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    public int getPublicatedYear() {
+        return publicatedYear;
+    }
+
+    public void setPublicatedYear(int publicatedYear) {
+        this.publicatedYear = publicatedYear;
+    }
+
+    public int getPagesQty() {
+        return pagesQty;
+    }
+
+    public void setPagesQty(int pagesQty) {
+        this.pagesQty = pagesQty;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public Book() {
+    }
+
+    public Book(int id, String name, String author, String publisher, int publicatedYear, int pagesQty, double price) {
+        this.id = nextId;
+        this.name = name;
+        this.author = author;
+        this.publisher = publisher;
+        this.publicatedYear = publicatedYear;
+        this.pagesQty = pagesQty;
+        this.price = price;
+        nextId++;
+    }
+
+    public Book(String author, int publicatedYear, double price) {
+        this(nextId, "My favourite book", author, "Kharkiv", publicatedYear, 121, price);
+    }
+
+    public void viewBook(){
+        System.out.println("Book with ID = " + this.getId() + ",\n" +
+                "name = " + this.getName() + ",\n" +
+                "author = " + this.getAuthor() +  ",\n" +
+                "publisher = " + this.getPublisher() + ",\n" +
+                "year of publication = " + this.getPublicatedYear() + ",\n" +
+                "qty of pages = " + this.getPagesQty() + ",\n" +
+                "price = " + this.getPrice());
+    }
+}
