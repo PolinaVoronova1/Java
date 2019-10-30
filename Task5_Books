@@ -1,0 +1,57 @@
+package epam.com.lesson6_1;
+
+import epam.com.Book;
+
+import java.util.Scanner;
+
+/**
+ * Created by Polina_Voronova on 10/28/2019.
+ */
+public class Books {
+    private int length;
+    Book[] array;
+
+    public Books(int length) {
+        this.length = length;
+        this.array = new Book[length];
+
+        for (int i=0;i < array.length; i++) {
+            System.out.println("Please enter author of book number " + i + " ");
+            Scanner sc = new Scanner(System.in);
+            String author = sc.nextLine();
+            System.out.println("Please enter published year of book number " + i + " ");
+            int publicatedYear = sc.nextInt();
+            System.out.println("Please enter price of book number " + i + " ");
+            double price = sc.nextDouble();
+            array[i] = new Book(author, publicatedYear, price);
+
+            System.out.println("___________________________________"); //just for visual effect
+        }
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public Book[] getArray() {
+        return array;
+    }
+
+    public void printBooks () {
+        System.out.println("Length of Books in printadBooks " + this.getLength());
+        if (this.array.length == 0) {
+            System.out.println("No books");
+        } else {
+            for (int b = 0; b < this.length; b++) {
+                System.out.println("Book number " + b + " in our library ");
+                array[b].viewBook();
+                System.out.println("******************************"); //just for visual effect
+            }
+        }
+
+
+    }
+    
+
+
+}
