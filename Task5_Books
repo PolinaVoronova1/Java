@@ -2,6 +2,8 @@ package epam.com.lesson6_1;
 
 import epam.com.Book;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -29,6 +31,12 @@ public class Books {
         }
     }
 
+    // Special Constructor for addBooks
+    public Books (int length,Book[] bookForConstructor){
+        this.length = length;
+        this.array = bookForConstructor;
+    }
+
     public int getLength() {
         return length;
     }
@@ -37,21 +45,82 @@ public class Books {
         return array;
     }
 
+    public Books addBook (Books lib, Book b) {
+
+        int newLength = lib.length + 1;
+        Book[] newArray = new Book[newLength];
+        for (int i=0; i < lib.length; i++){
+
+            newArray[i]  = lib.array[i];
+        }
+        newArray[newLength - 1] = b;
+        return new Books(newLength, newArray);
+    }
+
+    public Books searchByYear(int yearForSearch){
+        int counter = 0;
+        Book[] newArrayInternal = new Book[this.length];
+        for (int i=0, j = 0; i < this.length; i++){
+
+            if (this.array[i].getPublicatedYear() > yearForSearch){
+
+                newArrayInternal[j] = this.array[i];
+                counter++;
+                j++;
+            }
+        }
+        if (counter == 0) {
+            System.out.println("No books after " + yearForSearch + " year were found. You have obtained NULL");
+            return new Books(0);
+        } else {
+            System.out.println("We have found " + counter + " books after " + yearForSearch + " year");
+            return new Books(counter, Arrays.copyOf(newArrayInternal, counter));
+        }
+    }
+
+
+    public Books searchByAuthor(String authorForSearch){
+        int counter = 0;
+        Book[] newArrayInternal = new Book[this.length];
+        for (int i=0, j = 0; i < this.length; i++){
+
+            if (this.array[i].getAuthor().equalsIgnoreCase(authorForSearch)){
+
+                newArrayInternal[j] = this.array[i];
+                counter++;
+                j++;
+            }
+        }
+        if (counter == 0) {
+            System.out.println("No books by " + authorForSearch + " were found. You have obtained NULL");
+            return new Books(0);
+        } else {
+            System.out.println("We have found " + counter + " books by " + authorForSearch);
+            return new Books(counter, Arrays.copyOf(newArrayInternal, counter));
+        }
+    }
+
+    public void changePrice (int percent){
+        for (int i=0; i < this.length; i++){
+
+            double newPrice = this.array[i].getPrice() * (1 + (double)percent / 100) ;
+            this.array[i].setPrice(newPrice);
+        }
+    }
+
     public void printBooks () {
-        System.out.println("Length of Books in printadBooks " + this.getLength());
+
         if (this.array.length == 0) {
             System.out.println("No books");
         } else {
             for (int b = 0; b < this.length; b++) {
-                System.out.println("Book number " + b + " in our library ");
+                System.out.println("Book number " + b + ":");
                 array[b].viewBook();
                 System.out.println("******************************"); //just for visual effect
             }
         }
-
-
     }
-    
+
 
 
 }
