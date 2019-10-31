@@ -10,19 +10,45 @@ import java.util.Scanner;
 public class Task6_1 {
     public static void main(String[] args) {
 
-        Book bookN = new Book("nnn", 1986, 12.0);
+        Book bookN = new Book("nnn", 1986, 12.0); // for testing method addBook
+        int percentOfChangePrice; // for testing method changePrice
+        String authorForSearch; // for testing method searchByAuthor
+        int yearForSearch; // for testing method searchByYear
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Please enter length of books shelf ");
         int length = sc.nextInt();
         Books library1 = new Books(length);
-        System.out.println("Length of the library " + library1.getLength());
 
-        //library1.array[0].viewBook();
-        library1.addBook(library1, bookN);
-        library1.printBooks();
-        //        /*Books library2 =*/ library1.addBook(library1, bookN);
-        System.out.println("Length of the new library " + library1.getLength());
-       
+        // Block of checking addBook
+        /*System.out.println("Length of the library1 " + library1.getLength());
+        System.out.println();
+        Books library2 = library1.addBook(library1, bookN);
+        System.out.println("Length of the new library2 " + library2.getLength());
+        System.out.println();
+        System.out.println("Our shelf with new one book: " +'\n');
+        library2.printBooks();*/
+
+        // Block of checking changePrice
+        /*System.out.println("Please enter percent of change books price ");
+        percentOfChangePrice = sc.nextInt();
+        library1.changePrice(percentOfChangePrice);
+        System.out.println("Library1 with changed prices of all books by: " + percentOfChangePrice + "%" + '\n');
+        library1.printBooks();*/
+
+        // Block of checking searchByAuthor
+        /*System.out.println("Please enter searched author ");
+        authorForSearch = sc.next();
+        Books library3 = library1.searchByAuthor(authorForSearch);
+        System.out.println("Length of the new library3 with searched books " + library3.getLength());
+        library3.printBooks();*/
+
+        // Block of checking searchByYear
+        System.out.println("Please enter year after which you want find books ");
+        yearForSearch = sc.nextInt();
+        Books library4 = library1.searchByYear(yearForSearch);
+        System.out.println("Length of the new library4 with searched books " + library4.getLength());
+        library4.printBooks();
+
     }
 }
