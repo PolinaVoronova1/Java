@@ -1,0 +1,19 @@
+"C:\Program Files\Java\jdk-13.0.1\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.2.3\lib\idea_rt.jar=64377:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.2.3\bin" -Dfile.encoding=UTF-8 -classpath C:\Users\Polina\IdeaProjects\Project7_PV\out\production\Project7_PV epam.com.hometask.Main
+The rule of the triangle (2.0, 2.0, 4.0) was not fulfilled, the default values (1,1,1) are set
+class=Rectangle: color=red, width=2.0, heigth=3.0; area = 6.0
+class=Rectangle: color=yellow, width=12.0, heigth=1.0; area = 12.0
+class=Rectangle: color=green, width=2.0, heigth=3.0; area = 6.0
+class=Rectangle: color=red, width=3.0, heigth=7.0; area = 21.0
+class=Circle: color=blue, radius=2.5; area = 19.634954084936208
+class=Circle: color=magenta, radius=2.0; area = 12.566370614359172
+class=Circle: color=violet, radius=3.5; area = 38.48451000647496
+class=Triangle: color=white, a=3.0, b=3.0, c=5.0; area = 4.14578098794425
+class=Triangle: color=grey, a=1.0, b=1.0, c=1.0; area = 0.4330127018922193
+
+General area of array = 120.26462839560682
+
+Please enter shape which area need to be calculated 
+rectangle
+Sum of rectangle area = 45.0
+
+Process finished with exit code 0
