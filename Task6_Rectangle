@@ -1,0 +1,27 @@
+package epam.com.hometask;
+
+/**
+ * Created by Polina_Voronova on 10/31/2019.
+ */
+public class Rectangle extends Shape{
+    private double width;
+    private double heigth;
+
+    public Rectangle(String color, double width, double heigth) {
+        super(color);
+        this.width = width;
+        this.heigth = heigth;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                ", width=" + width +
+                ", heigth=" + heigth;
+    }
+
+    @Override
+    public double calcArea() {
+        return width * heigth;
+    }
+}
