@@ -1,0 +1,41 @@
+package epam.com.hometask;
+
+/**
+ * Created by Polina_Voronova on 10/31/2019.
+ */
+public class Triangle extends Shape{
+
+    private double a;
+    private double b;
+    private double c;
+
+    public Triangle(String color, double a, double b, double c) {
+        super(color);
+        if (((a + b) > c) && ((a + c) > b) && ((c + b) > a)) {
+
+        this.a = a;
+        this.b = b;
+        this.c = c;
+        } else {
+            this.a = 1.0;
+            this.b = 1.0;
+            this.c = 1.0;
+            System.err.println("The rule of the triangle (" + a + ", " + b + ", " + c + ") was not fulfilled, the default values (1,1,1) are set");
+        }
+
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                ", a=" + a +
+                ", b=" + b +
+                ", c=" + c;
+    }
+
+    @Override
+    public double calcArea() {
+        double perimetrHalf = 0.5 * (a + b +c);
+        return Math.pow((perimetrHalf * (perimetrHalf -a ) * (perimetrHalf - b) * (perimetrHalf - c)), 0.5);
+    }
+}
