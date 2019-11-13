@@ -1,0 +1,88 @@
+package epam.company.hometask7;
+
+import java.time.LocalDate;
+import java.util.*;
+
+/**
+ * Created by Polina_Voronova on 11/8/2019.
+ */
+public class Main {
+        public static void main(String[] args) {
+
+            Validator v = new Validator();
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Please enter length of books shelf ");
+            int length = sc.nextInt();
+
+            String[] authors = new String[length];
+            String[] publishers = new String[length];
+            int[] publishedYears = new int[length];
+            int[] pages = new int[length];
+            double[] prices = new double[length];
+
+            for (int i = 0; i < length; i++) {
+                System.out.println("Please enter author of book number " + i + " ");
+                authors[i] = sc.next();
+                System.out.println("Please enter publisher of book number " + i + " ");
+                publishers[i] = sc.next();
+
+                System.out.println("Please enter year of publication of the book number " + i + " ");
+                while (true) {
+                    try {
+                        publishedYears[i] = sc.nextInt();
+                        setYear(publishedYears[i]);
+                        break;
+                    } catch (Validator.YearException ye) {
+                        System.err.println(ye.getMessage());
+                        System.out.println("Please enter CORRECT year of publication of the book number " + i + " ");
+                    }
+                }
+
+                System.out.println("Please enter the price of the book number " + i + " ");
+                while (true) {
+                    try {
+                        prices[i] = sc.nextDouble();
+                        setPriceOfBook(prices[i]);
+                        break;
+                    } catch (Validator.PriceException pe) {
+                        System.err.println(pe.getMessage());
+                        System.out.println("Please enter CORRECT price of the book number " + i + " ");
+                    }
+                }
+
+            }
+            Books library1 = new Books(length, authors, publishedYears, prices);
+            library1.printBooks();
+
+            System.out.println("______________________________________________________");
+            System.out.println("Below books shelf sorted by Author:");
+            library1.sortByAuthor();
+            library1.printBooks();
+
+            System.out.println("______________________________________________________");
+            System.out.println("Below books shelf sorted by Price:");
+            library1.sortByPrice();
+            library1.printBooks();
+
+            System.out.println("______________________________________________________");
+            System.out.println("Below books shelf sorted by Publisher:");
+            library1.sortByPublisher();
+            library1.printBooks();
+
+        }
+
+        public static int setYear (int yearForConstructor) throws Validator.YearException{
+            if ((yearForConstructor < 1445) || (yearForConstructor > LocalDate.now().getYear())) {
+                throw new Validator.YearException();
+            }
+            return yearForConstructor;
+        }
+
+        public static double setPriceOfBook (double priceForConstructor) throws Validator.PriceException{
+            if (priceForConstructor <= 0) {
+                throw new Validator.PriceException();
+            }
+            return priceForConstructor;
+        }
+
+}
