@@ -1,0 +1,23 @@
+package epam.company.hometask7;
+
+/**
+ * Created by Polina_Voronova on 11/8/2019.
+ */
+
+
+public class Validator {
+
+       public static class YearException extends Exception{
+        @Override
+        public String getMessage() {
+            return "Wrong Year of publication! Be careful.";
+            }
+        }
+        public static class PriceException extends Exception{
+            @Override
+            public String getMessage() {
+                return "Wrong Price of the book. Be careful.";
+            }
+        }
+
+}
