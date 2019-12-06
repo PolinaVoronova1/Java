@@ -1,0 +1,12 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class Database {
+    public static Map<Integer, String> hm = new HashMap<>();
+
+    public Database(int length) {
+        for (int i = 1; i <= length; i++) {
+            this.hm.put(i, i + " user");
+        }
+    }
+}
