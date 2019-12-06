@@ -1,0 +1,26 @@
+package epam.com.collections;
+
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        MyArrayList myArray = new MyArrayList(3);
+        myArray.setArray(new int[]{1, 2, 3});
+        System.out.println("Initial array = " + myArray.toString());
+        MyArrayList newMyArray;
+        newMyArray = myArray.add(4);
+        System.out.println("Initial array + adding one element = " + newMyArray.toString());
+        MyArrayList newMyArray2;
+        newMyArray2 = newMyArray.removeByPosition(4);
+        System.out.println("-//- deleting one element = " + newMyArray2.toString());
+        MyArrayList newMyArray3;
+        newMyArray3 = newMyArray.clear();
+        System.out.println("-//- after using method clear() = " + newMyArray3.toString());
+        int[] array1 = newMyArray2.toArray();
+        System.out.println("Method toArray() = " + Arrays.toString(array1));
+        int size = newMyArray.size();
+        System.out.println("Method size() = " + size);
+        System.out.println("Method contains() = " + newMyArray2.contains(2));
+
+    }
+}
