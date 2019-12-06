@@ -1,0 +1,66 @@
+package epam.com.collections;
+
+import java.util.Arrays;
+
+public class MyArrayList {
+
+    private int[] array;
+
+    public MyArrayList(int size) {
+        array = new int[size];
+    }
+
+    public MyArrayList(int[] array) {
+        this.array = array;
+    }
+
+    public void setArray(int[] array) {
+        this.array = array;
+    }
+
+    public int[] getArray() {
+        return array;
+    }
+
+    public MyArrayList add (int newElement){
+        int length = array.length;
+        int[] newArray = Arrays.copyOf(this.array, length + 1);
+        newArray[length] = newElement;
+        return new MyArrayList(newArray);
+    }
+
+    @Override
+    public String toString() {
+        return Arrays.toString(this.getArray());
+    }
+
+    public MyArrayList removeByPosition(int index){
+        MyArrayList newArray = new MyArrayList(this.getArray().length);
+        if (index > this.getArray().length - 1) {
+            System.out.println("Incorrect index. You will get current object:");
+            return this;
+        } else {
+                for (int i = 0; i < this.getArray().length; i++){
+                    if (i != index) {
+                        newArray.array[i] = this.array[i];
+                    }
+                }
+            return newArray;
+        }
+    }
+    public MyArrayList clear(){
+        return new MyArrayList(this.getArray().length);
+    }
+    public int[] toArray(){
+        return this.array;
+    }
+    public int size(){
+        return this.getArray().length;
+    }
+    public boolean contains(int x){
+        Arrays.sort(this.array);
+        if (Arrays.binarySearch(this.array, x)  < 0) {
+            return false;
+        }else {return true;}
+    }
+}
